@@ -1,0 +1,35 @@
+<div class="container">
+	</br>
+	<input type="image" src="imagem/+.png" name="add" ng-click="novo()">
+	<form ng-show="form">
+		<span>Título</span>
+		<input class="form-control" type="text" ng-bind="titulo">
+		<span>Descrição</span>
+		<textarea class="form-control" rows="4" cols="30" ng-bind="descricao"></textarea>
+		<button class="btn btn-success" ng-show="!atualizar" ng-click="enviar()">Enviar</button>
+		<button class="btn btn-success" ng-show="atualizar" ng-click="enviarEdicao()">Editar</button>
+		<button class="btn btn-warning" ng-click="cancelar()">Cancelar</button>
+	</form>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Título</th>
+				<th>Descrição</th>
+				<th>Status</th>
+				<th>Apagar</th>
+				<th>Editar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in tarefas">
+				<td>{{x.titulo}}</td>
+				<td>{{x.descricao}}</td>
+				<td ng-if="x.status"> <img src="imagem/v.png"></td>
+				<td ng-if="!x.status"></td>
+				<td> <input type="image" src="imagem/l.png" name="add" ng-click="apagar(x)"></td>
+				<td> <input type="image" src="imagem/a.jpg" name="add" ng-click="editar(x)"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
